@@ -1,0 +1,24 @@
+{
+  "name": "req-prom",
+  "author": "Lloyd Brookes <lloyd.brookes@gamesys.co.uk>",
+  "version": "0.0.0",
+  "description": "req-prom",
+  "repository": "",
+  "main": "./lib/req-prom.js",
+  "bin": {
+    "request": "bin/cli.js"
+  },
+  "keywords": [],
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "tape test/*.js",
+    "lint": "jshint lib/*.js bin/*.js test/*.js; echo",
+    "docs": "jsdoc2md -t jsdoc2md/README.hbs lib/*.js > README.md; echo"
+  },
+  "dependencies": {
+    "q": "^1.1.2"
+  },
+  "devDependencies": {}
+}
