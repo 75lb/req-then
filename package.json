@@ -1,10 +1,10 @@
 {
-  "name": "req-prom",
+  "name": "http-request",
   "author": "Lloyd Brookes <lloyd.brookes@gamesys.co.uk>",
-  "version": "0.0.0",
-  "description": "req-prom",
-  "repository": "",
-  "main": "./lib/req-prom.js",
+  "version": "0.1.0",
+  "description": "http-request",
+  "repository": "https://github.gamesys.co.uk/lloyd-brookes/http-request",
+  "main": "./lib/http-request.js",
   "bin": {
     "request": "bin/cli.js"
   },
@@ -15,7 +15,7 @@
   "scripts": {
     "test": "tape test/*.js",
     "lint": "jshint lib/*.js bin/*.js test/*.js; echo",
-    "docs": "jsdoc2md lib/*.js > README.md; echo"
+    "docs": "jsdoc2md lib/*.js -l js > README.md; echo"
   },
   "dependencies": {
     "q": "^1.1.2"
