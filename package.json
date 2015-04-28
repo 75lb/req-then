@@ -18,7 +18,14 @@
     "docs": "jsdoc2md lib/*.js -l js > README.md; echo",
     "start": "node test/interactive/server.js"
   },
+  "browserify": {
+    "transform": [
+      "brfs"
+    ]
+  },
   "dependencies": {
+    "brfs": "^1.4.0",
+    "dom-view": "git+https://github.gamesys.co.uk/xmpp/dom-view.git",
     "object-tools": "^1.2.2",
     "q": "^1.1.2"
   },
