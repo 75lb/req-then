@@ -19,4 +19,3 @@ createRequest(url, { method: method, data: data }).promise
   .catch(function (err) {
     console.error('ERROR: ' + err.message)
   })
-  .done()

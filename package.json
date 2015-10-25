@@ -18,7 +18,7 @@
     "start": "node test/interactive/server.js"
   },
   "dependencies": {
-    "object-tools": "^1.2.2"
+    "object-tools": "^2"
   },
   "devDependencies": {}
 }
