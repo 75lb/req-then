@@ -13,8 +13,8 @@ var request = require("req-then")
 
 request("http://www.bbc.co.uk")
 	.then(response => {
-		console.log("Response received")
-		console.log(response.data)
+		console.log("Response received", response.data)
+		console.log("The nodejs response instance", response.res)
 	})
 	.catch(console.error)
 ```
