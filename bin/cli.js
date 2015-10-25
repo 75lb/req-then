@@ -10,10 +10,10 @@ var data = process.argv[4]
 
 createRequest(url, { method: method, data: data })
   .then(function (response) {
-    console.log('RESPONSE\n========')
-    console.log(util.inspect(o.select(response.res, [ 'statusCode', 'statusMessage', 'headers' ]), { depth: null }))
+    console.error('RESPONSE\n========')
+    console.error(util.inspect(o.select(response.res, [ 'statusCode', 'statusMessage', 'headers' ]), { depth: null }))
 
-    console.log('\nDATA\n====')
+    console.error('\nDATA\n====')
     console.log(response.data)
   })
   .catch(function (err) {
