@@ -2,13 +2,13 @@
   "name": "req-then",
   "author": "Lloyd Brookes <75pound@gmail.com>",
   "version": "0.1.0",
-  "description": "req-then",
-  "repository": "",
+  "description": "Simple http(s) request function, returning a promise. ",
+  "repository": "https://github.com/75lb/req-then",
   "main": "./lib/req-then.js",
   "bin": {
     "request": "bin/cli.js"
   },
-  "keywords": [],
+  "keywords": [ "http", "https", "request", "promise", "then", "req", "es6", "native" ],
   "engines": {
     "node": ">=0.10.0"
   },
