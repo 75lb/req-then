@@ -8,6 +8,7 @@
   "bin": {
     "request": "bin/cli.js"
   },
+  "license": "MIT",
   "keywords": [
     "http",
     "https",
@@ -23,7 +24,7 @@
   },
   "scripts": {
     "test": "tape test/*.js",
-    "docs": "jsdoc2md lib/*.js -l js > README.md; echo",
+    "docs": "jsdoc2md -t jsdoc2md/README.hbs lib/*.js -l js > README.md; echo",
     "start": "node test/interactive/server.js"
   },
   "dependencies": {
