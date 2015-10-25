@@ -1,10 +1,10 @@
 {
-  "name": "http-request",
+  "name": "req-then",
   "author": "Lloyd Brookes <75pound@gmail.com>",
   "version": "0.1.0",
-  "description": "http-request",
+  "description": "req-then",
   "repository": "",
-  "main": "./lib/http-request.js",
+  "main": "./lib/req-then.js",
   "bin": {
     "request": "bin/cli.js"
   },
@@ -19,6 +19,5 @@
   },
   "dependencies": {
     "object-tools": "^2"
-  },
-  "devDependencies": {}
+  }
 }
