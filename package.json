@@ -1,0 +1,36 @@
+{
+  "name": "req-then",
+  "author": "Lloyd Brookes <75pound@gmail.com>",
+  "version": "0.2.1",
+  "description": "Simple http(s) request function, returning a promise. ",
+  "repository": "https://github.com/75lb/req-then",
+  "main": "./lib/req-then.js",
+  "bin": {
+    "request": "bin/cli.js"
+  },
+  "license": "MIT",
+  "keywords": [
+    "http",
+    "https",
+    "request",
+    "promise",
+    "then",
+    "req",
+    "es6",
+    "native"
+  ],
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "tape test/*.js",
+    "docs": "jsdoc2md -t jsdoc2md/README.hbs lib/*.js -l js > README.md; echo",
+    "start": "node test/interactive/server.js"
+  },
+  "dependencies": {
+    "object-tools": "^2"
+  },
+  "devDependencies": {
+    "jsdoc-to-markdown": "^1.2.0"
+  }
+}
