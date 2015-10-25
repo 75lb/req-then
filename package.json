@@ -19,5 +19,8 @@
   },
   "dependencies": {
     "object-tools": "^2"
+  },
+  "devDependencies": {
+    "jsdoc-to-markdown": "^1.2.0"
   }
 }
