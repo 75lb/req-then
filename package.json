@@ -28,6 +28,7 @@
     "start": "node test/interactive/server.js"
   },
   "dependencies": {
+    "defer-promise": "^0.1.0",
     "object-tools": "^2"
   },
   "devDependencies": {
