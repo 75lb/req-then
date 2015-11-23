@@ -29,7 +29,8 @@
   },
   "dependencies": {
     "defer-promise": "^0.1.0",
-    "object-tools": "^2"
+    "object-tools": "^2",
+    "typical": "^2.4.0"
   },
   "devDependencies": {
     "jsdoc-to-markdown": "^1.2.0"

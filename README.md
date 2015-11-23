@@ -7,6 +7,8 @@
 ## req-then
 Simple http(s) request function, returning a promise. Built on node's `http` and `https` modules, so works in both node and browser (via browserify).
 
+Uses ES6 Promises, if defined. If not, use a 3rd party promise library.
+
 **Example**  
 ```js
 var request = require("req-then")
@@ -31,8 +33,10 @@ Returns a promise for the response.
 | url | <code>string</code> |  | target url |
 | [options] | <code>object</code> |  |  |
 | [options.method] | <code>string</code> | <code>&quot;GET&quot;</code> | GET, POST etc. |
-| [options.data] | <code>string</code> |  | data to POST |
+| [options.data] | <code>string</code> &#124; <code>object</code> |  | data to POST. Objects will be JSON stringified. |
 | [options.headers] | <code>object</code> |  | header object |
+| [options.rejectUnauthorized] | <code>boolean</code> |  |  |
+| [options.withCredentials] | <code>boolean</code> |  |  |
 
 
 * * *
