@@ -1,6 +1,5 @@
 'use strict'
 var http = require('http')
-var util = require('util')
 
 /* simple echo server.. useful for testing POST requests.. */
 /* why do only the first 2 requests fire 'end'?? */
