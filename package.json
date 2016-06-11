@@ -28,8 +28,10 @@
     "start": "node test/interactive/server.js"
   },
   "dependencies": {
+    "array-back": "^1.0.3",
     "defer-promise": "^1.0.0",
-    "object-tools": "^2.0.6",
+    "lodash.pick": "^4.2.1",
+    "then-fs": "^2.0.0",
     "typical": "^2.4.2"
   },
   "devDependencies": {
