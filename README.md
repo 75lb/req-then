@@ -4,39 +4,38 @@
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](https://github.com/feross/standard)
 
 <a name="module_req-then"></a>
-## req-then
-Simple http(s) request function, returning a promise. Built on node's `http` and `https` modules, so works in both node and browser (via browserify).
 
-Uses ES6 Promises, if defined. If not, use a 3rd party promise library.
+## req-then
+Wraps the built-in node `request` function with a few extras:
+
+- Returns a promise, resolving to an object containing the data, node response and original request.
+- If data was supplied, sets a `content-length` header if not already present
+- Automatically selects `http` or `https` transport depending on the input URL
 
 **Example**  
 ```js
-var request = require("req-then")
+const request = require('req-then')
 
-request("http://www.bbc.co.uk")
+request('http://www.bbc.co.uk')
 	.then(response => {
-		console.log("Response received", response.data)
-		console.log("The nodejs response instance", response.res)
+		console.log('Response received', response.data)
+		console.log('The nodejs response instance', response.res)
 	})
 	.catch(console.error)
 ```
 <a name="exp_module_req-then--request"></a>
-### request(url, [options]) ⇒ <code>[Promise](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise)</code> ⏏
+
+### request(reqOptions, [data]) ⇒ <code>external:Promise</code> ⏏
 Returns a promise for the response.
 
 **Kind**: Exported function  
-**Resolve**: <code>object</code> - `res` will be the node response object, `data` will be the data  
+**Resolve**: <code>object</code> - `res` will be the node response object, `data` will be the data, `req` the original request.  
 **Reject**: <code>Error</code>  
 
-| Param | Type | Default | Description |
-| --- | --- | --- | --- |
-| url | <code>string</code> |  | target url |
-| [options] | <code>object</code> |  |  |
-| [options.method] | <code>string</code> | <code>&quot;GET&quot;</code> | GET, POST etc. |
-| [options.data] | <code>string</code> &#124; <code>object</code> |  | data to POST. Objects will be JSON stringified. |
-| [options.headers] | <code>object</code> |  | header object |
-| [options.rejectUnauthorized] | <code>boolean</code> |  |  |
-| [options.withCredentials] | <code>boolean</code> |  |  |
+| Param | Type | Description |
+| --- | --- | --- |
+| reqOptions | <code>string</code> &#124; <code>object</code> | Target url string or a standard node.js http request options object. |
+| [data] | <code>\*</code> | Data to send with the request. |
 
 
 * * *
