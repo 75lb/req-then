@@ -6,7 +6,7 @@
   "repository": "https://github.com/75lb/req-then",
   "main": "./lib/req-then.js",
   "bin": {
-    "request": "bin/cli.js"
+    "req-then": "bin/cli.js"
   },
   "license": "MIT",
   "keywords": [
