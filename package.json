@@ -4,7 +4,7 @@
   "version": "0.3.3",
   "description": "Simple http(s) request function, returning a promise. ",
   "repository": "https://github.com/75lb/req-then",
-  "main": "./lib/req-then.js",
+  "main": "index",
   "bin": {
     "req-then": "bin/cli.js"
   },
@@ -25,15 +25,18 @@
   "scripts": {
     "test": "tape test/*.js",
     "docs": "jsdoc2md -t jsdoc2md/README.hbs lib/*.js -l js > README.md; echo",
-    "start": "node test/interactive/server.js"
+    "start": "node test/interactive/server.js",
+    "es5": "rm -rf es5 && babel --presets babel-preset-es2015 --no-comments lib --out-dir es5"
   },
   "dependencies": {
     "array-back": "^1.0.3",
     "defer-promise": "^1.0.0",
+    "feature-detect-es6": "^1.3.1",
     "lodash.pick": "^4.2.1",
     "typical": "^2.4.2"
   },
   "devDependencies": {
+    "babel-preset-es2015": "^6.13.2",
     "jsdoc-to-markdown": "^1.3.6"
   }
 }
