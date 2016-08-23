@@ -6,11 +6,12 @@
 <a name="module_req-then"></a>
 
 ## req-then
-Wraps the built-in node `request` function with a few extras:
+Wraps node's built-in http(s) `request` function with a few extras:
 
 - Returns a promise, resolving to an object containing the data, node response and original request.
-- If data was supplied, sets a `content-length` header if not already present
-- Automatically selects `http` or `https` transport depending on the input URL
+- If data was supplied, sets a `content-length` header if not already present.
+- Automatically selects `http` or `https` transport depending on the input URL.
+- Cancellable (which `fetch` is not).
 
 **Example**  
 ```js
@@ -30,11 +31,12 @@ Returns a promise for the response.
 
 **Kind**: Exported function  
 **Resolve**: <code>object</code> - `res` will be the node response object, `data` will be the data, `req` the original request.  
-**Reject**: <code>Error</code>  
+**Reject**: <code>Error</code> - If aborted, the `name` property of the error will be `aborted`.  
 
 | Param | Type | Description |
 | --- | --- | --- |
 | reqOptions | <code>string</code> &#124; <code>object</code> | Target url string or a standard node.js http request options object. |
+| [reqOptions.controller] | <code>object</code> | If supplied, an `.abort()` method will be created on it which, if invoked, will cancel the request. Cancelling will cause the returned promise to reject with an `'aborted'` error. |
 | [data] | <code>\*</code> | Data to send with the request. |
 
 

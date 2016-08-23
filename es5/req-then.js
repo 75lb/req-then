@@ -58,5 +58,12 @@ function request(reqOptions, data) {
 
   req.end(data);
 
+  reqOptions.controller.abort = function () {
+    req.abort();
+    var err = new Error('Aborted');
+    err.name = 'aborted';
+    deferred.reject(err);
+  };
+
   return deferred.promise;
 }
