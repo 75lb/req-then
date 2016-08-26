@@ -17,10 +17,6 @@ function request(reqOptions, data) {
     reqOptions = Object.assign({ headers: {} }, reqOptions);
   }
 
-  if (data && !reqOptions.headers['content-length']) {
-    reqOptions.headers['content-length'] = data.length;
-  }
-
   var deferred = defer();
 
   var transport = void 0;

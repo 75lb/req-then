@@ -9,7 +9,6 @@
 Wraps node's built-in http(s) `request` function with a few extras:
 
 - Returns a promise, resolving to an object containing the data, node response and original request.
-- If data was supplied, sets a `content-length` header if not already present.
 - Automatically selects `http` or `https` transport depending on the input URL.
 - Cancellable (which `fetch` is not).
 
@@ -19,10 +18,26 @@ const request = require('req-then')
 
 request('http://www.bbc.co.uk')
 	.then(response => {
-		console.log('Response received', response.data)
+		console.log('Response data received', response.data)
+		console.log('The original request options', response.req)
 		console.log('The nodejs response instance', response.res)
 	})
 	.catch(console.error)
+```
+**Example**  
+```js
+const request = require('req-then')
+const url = require('url')
+const reqOptions = url.parse('http://www.bbc.co.uk')
+const controller = {}
+reqOptions.controller = controller
+request(reqOptions)
+	.then(response => {
+		console.log('Response data received', response.data)
+	})
+
+// kill the request and close the socket
+controller.abort()
 ```
 <a name="exp_module_req-then--request"></a>
 
