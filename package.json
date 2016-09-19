@@ -33,10 +33,10 @@
     "defer-promise": "^1.0.0",
     "feature-detect-es6": "^1.3.1",
     "lodash.pick": "^4.4.0",
-    "typical": "^2.5.0"
+    "typical": "^2.6.0"
   },
   "devDependencies": {
-    "babel-preset-es2015": "^6.13.2",
+    "babel-preset-es2015": "^6.14.0",
     "jsdoc-to-markdown": "^2.0.0-alpha.11"
   }
 }
