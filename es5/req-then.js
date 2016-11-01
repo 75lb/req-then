@@ -30,9 +30,9 @@ function request(reqOptions, data) {
   }
 
   var req = transport.request(reqOptions, function (res) {
-    var data = Buffer(0);
+    var data = new Buffer(0);
     res.on('data', function resOnData(chunk) {
-      data = Buffer.concat([data, Buffer(chunk)]);
+      data = Buffer.concat([data, new Buffer(chunk)]);
     });
     res.on('end', function resOnEnd() {
       if (res.statusCode !== 0) {
