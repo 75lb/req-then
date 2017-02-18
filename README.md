@@ -17,12 +17,12 @@ Wraps node's built-in http(s) `request` function with a few extras:
 const request = require('req-then')
 
 request('http://www.bbc.co.uk')
-	.then(response => {
-		console.log('Response data received', response.data)
-		console.log('The original request options', response.req)
-		console.log('The nodejs response instance', response.res)
-	})
-	.catch(console.error)
+  .then(response => {
+    console.log('Response data received', response.data)
+    console.log('The original request options', response.req)
+    console.log('The nodejs response instance', response.res)
+  })
+  .catch(console.error)
 ```
 **Example**  
 ```js
@@ -32,9 +32,9 @@ const reqOptions = url.parse('http://www.bbc.co.uk')
 const controller = {}
 reqOptions.controller = controller
 request(reqOptions)
-	.then(response => {
-		console.log('Response data received', response.data)
-	})
+  .then(response => {
+    console.log('Response data received', response.data)
+  })
 
 // kill the request and close the socket
 controller.abort()
@@ -57,4 +57,4 @@ Returns a promise for the response.
 
 * * *
 
-&copy; 2015-16 Lloyd Brookes \<75pound@gmail.com\>. Documented by [jsdoc-to-markdown](https://github.com/jsdoc2md/jsdoc-to-markdown).
+&copy; 2015-17 Lloyd Brookes \<75pound@gmail.com\>. Documented by [jsdoc-to-markdown](https://github.com/jsdoc2md/jsdoc-to-markdown).
