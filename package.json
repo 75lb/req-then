@@ -5,9 +5,6 @@
   "description": "Simple http(s) request function, returning a promise. ",
   "repository": "https://github.com/75lb/req-then",
   "main": "lib/req-then.js",
-  "bin": {
-    "req-then": "bin/cli.js"
-  },
   "license": "MIT",
   "keywords": [
     "http",
