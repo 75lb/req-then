@@ -55,7 +55,7 @@ function request (reqOptions, data) {
   }
 
   let transport
-  const protocol = reqOptions.protocol || 'http:'
+  const protocol = reqOptions.protocol
   if (protocol === 'http:') {
     transport = require('http')
   } else if (protocol === 'https:') {
