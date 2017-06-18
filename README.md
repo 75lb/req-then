@@ -1,6 +1,7 @@
 [![view on npm](http://img.shields.io/npm/v/req-then.svg)](https://www.npmjs.org/package/req-then)
 [![npm module downloads](http://img.shields.io/npm/dt/req-then.svg)](https://www.npmjs.org/package/req-then)
 [![Dependency Status](https://david-dm.org/75lb/req-then.svg)](https://david-dm.org/75lb/req-then)
+[![Coverage Status](https://coveralls.io/repos/github/75lb/req-then/badge.svg)](https://coveralls.io/github/75lb/req-then)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](https://github.com/feross/standard)
 
 <a name="module_req-then"></a>
@@ -50,7 +51,7 @@ Returns a promise for the response.
 
 | Param | Type | Description |
 | --- | --- | --- |
-| reqOptions | <code>string</code> &#124; <code>object</code> | Target url string or a standard node.js http request options object. |
+| reqOptions | <code>string</code> \| <code>object</code> | Target url string or a standard node.js http request options object. |
 | [reqOptions.controller] | <code>object</code> | If supplied, an `.abort()` method will be created on it which, if invoked, will cancel the request. Cancelling will cause the returned promise to reject with an `'aborted'` error. |
 | [data] | <code>\*</code> | Data to send with the request. |
 

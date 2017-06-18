@@ -1,10 +1,4 @@
 'use strict'
-const http = require('http')
-const https = require('https')
-const urlUtils = require('url')
-const defer = require('defer-promise')
-const t = require('typical')
-const pick = require('lodash.pick')
 
 /**
  * Wraps node's built-in http(s) `request` function with a few extras:
@@ -51,39 +45,39 @@ module.exports = request
  * @alias module:req-then
  */
 function request (reqOptions, data) {
+  const t = require('typical')
   if (!reqOptions) return Promise.reject(Error('need a URL or request options object'))
   if (t.isString(reqOptions)) {
+    const urlUtils = require('url')
     reqOptions = urlUtils.parse(reqOptions)
   } else {
     reqOptions = Object.assign({ headers: {} }, reqOptions)
   }
 
-  const deferred = defer()
-
   let transport
   const protocol = reqOptions.protocol || 'http:'
   if (protocol === 'http:') {
-    transport = http
+    transport = require('http')
   } else if (protocol === 'https:') {
-    transport = https
+    transport = require('https')
+    reqOptions.agent = new https.Agent()
   } else {
     return Promise.reject(Error('Protocol missing from request: ' + JSON.stringify(reqOptions, null, '  ')))
   }
 
+  const defer = require('defer-promise')
+  const deferred = defer()
   const req = transport.request(reqOptions, function (res) {
-    let data = new Buffer(0)
-    res.on('data', function resOnData (chunk) {
-      data = Buffer.concat([ data, new Buffer(chunk) ])
-    })
-    res.on('end', function resOnEnd () {
+    const streamReadAll = require('stream-read-all')
+    streamReadAll(res).then(data => {
       /* statusCode will be zero if the request was disconnected, so don't resolve */
       if (res.statusCode !== 0) {
-        const result = {
+        const pick = require('lodash.pick')
+        deferred.resolve({
           data: data,
           res: pick(res, [ 'headers', 'method', 'statusCode', 'statusMessage', 'url' ]),
           req: reqOptions
-        }
-        deferred.resolve(result)
+        })
       }
     })
   })

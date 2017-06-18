@@ -1,6 +1,6 @@
 'use strict'
 var TestRunner = require('test-runner')
-var request = require('../')
+var request = require('./')
 
 var runner = new TestRunner()
 

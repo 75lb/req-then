@@ -20,18 +20,20 @@
     "node": ">=4.0.0"
   },
   "scripts": {
-    "test": "test-runner test/*.js",
-    "docs": "jsdoc2md -t jsdoc2md/README.hbs lib/*.js -l js > README.md; echo",
-    "start": "node test/interactive/server.js"
+    "test": "test-runner test.js",
+    "docs": "jsdoc2md -t README.hbs index.js -l js > README.md; echo",
+    "cover": "istanbul cover ./node_modules/.bin/test-runner test.js && cat coverage/lcov.info | ./node_modules/.bin/coveralls"
   },
   "dependencies": {
     "array-back": "^1.0.4",
     "defer-promise": "^1.0.1",
     "lodash.pick": "^4.4.0",
-    "typical": "^2.6.0"
+    "stream-read-all": "^0.1.0",
+    "typical": "^2.6.1"
   },
   "devDependencies": {
+    "coveralls": "^2.13.1",
     "jsdoc-to-markdown": "^3.0.0",
-    "test-runner": "^0.3.0"
+    "test-runner": "^0.4.0"
   }
 }
