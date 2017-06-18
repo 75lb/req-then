@@ -60,7 +60,6 @@ function request (reqOptions, data) {
     transport = require('http')
   } else if (protocol === 'https:') {
     transport = require('https')
-    reqOptions.agent = new https.Agent()
   } else {
     return Promise.reject(Error('Protocol missing from request: ' + JSON.stringify(reqOptions, null, '  ')))
   }
