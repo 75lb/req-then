@@ -67,18 +67,30 @@ function request (reqOptions, data) {
   const defer = require('defer-promise')
   const deferred = defer()
   const req = transport.request(reqOptions, function (res) {
-    const streamReadAll = require('stream-read-all')
-    streamReadAll(res).then(data => {
-      /* statusCode will be zero if the request was disconnected, so don't resolve */
-      if (res.statusCode !== 0) {
-        const pick = require('lodash.pick')
-        deferred.resolve({
-          data: data,
-          res: pick(res, [ 'headers', 'method', 'statusCode', 'statusMessage', 'url' ]),
-          req: reqOptions
-        })
+    const pick = require('lodash.pick')
+    if (/text\/event-stream/.test(res.headers['content-type'])) {
+      const util = require('util')
+      res[util.inspect.custom] = function (depth, options) {
+        return options.stylize('[ SSE event-stream ]', 'special')
       }
-    })
+      deferred.resolve({
+        data: res,
+        res: pick(res, [ 'headers', 'method', 'statusCode', 'statusMessage', 'url' ]),
+        req: reqOptions
+      })
+    } else {
+      const streamReadAll = require('stream-read-all')
+      streamReadAll(res).then(data => {
+        /* statusCode will be zero if the request was disconnected, so don't resolve */
+        if (res.statusCode !== 0) {
+          deferred.resolve({
+            data: res,
+            res: pick(res, [ 'headers', 'method', 'statusCode', 'statusMessage', 'url' ]),
+            req: reqOptions
+          })
+        }
+      })
+    }
   })
 
   req.on('error', function reqOnError (err) {

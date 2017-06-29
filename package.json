@@ -25,7 +25,7 @@
     "cover": "istanbul cover ./node_modules/.bin/test-runner test.js && cat coverage/lcov.info | ./node_modules/.bin/coveralls"
   },
   "dependencies": {
-    "array-back": "^1.0.4",
+    "array-back": "^2.0.0",
     "defer-promise": "^1.0.1",
     "lodash.pick": "^4.4.0",
     "stream-read-all": "^0.1.0",

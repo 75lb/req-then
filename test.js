@@ -61,3 +61,10 @@ runner.skip('bad: bad url', function () {
   return request('http://www.khkalsjnkfjk43674378578234587246786.co.uk')
     .then(response => console.error(require('util').inspect(response, { depth: 6, colors: true })))
 })
+
+runner.skip('SSE stream', function () {
+  return request('http://127.0.0.1:8000/sse')
+    .then(response => {
+      console.error(require('util').inspect(response, { depth: 6, colors: true }))
+    })
+})
