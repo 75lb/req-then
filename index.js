@@ -84,7 +84,7 @@ function request (reqOptions, data) {
         /* statusCode will be zero if the request was disconnected, so don't resolve */
         if (res.statusCode !== 0) {
           deferred.resolve({
-            data: res,
+            data: data,
             res: pick(res, [ 'headers', 'method', 'statusCode', 'statusMessage', 'url' ]),
             req: reqOptions
           })
